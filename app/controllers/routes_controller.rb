@@ -1,10 +1,19 @@
 class RoutesController < ApplicationController
   before_action :set_route, only: [:show, :edit, :update, :destroy]
+  include RoutesHelper
 
   # GET /routes
   # GET /routes.json
   def index
-    @routes = Route.all
+    @resolved_routes = Route.resolved
+    @unresolved_routes = Route.not_resolved
+  end
+
+  # GET /resolve
+  # GET /resolve.json
+  def resolve
+    RoutesHelper.resolve_routes
+    redirect_to :root
   end
 
   # GET /routes/1

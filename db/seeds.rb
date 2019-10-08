@@ -48,6 +48,21 @@ Route.create(
 	driver_id: nil
 );
 
+Route.create(
+	starts_at: "2019-10-08 13:00:00", 
+	ends_at: "2019-10-08 15:00:00", 
+	load_type: "General", 
+	load_sum: 50, 
+	cities: "Renca"
+);
+Route.create(
+	starts_at: "2019-10-08 13:00:00", 
+	ends_at: "2019-10-08 15:00:00", 
+	load_type: nil, 
+	load_sum: 120, 
+	cities: "LaReina"
+);
+
 
 p "Created #{Route.count} routes"
 p "Created #{Driver.count} drivers"

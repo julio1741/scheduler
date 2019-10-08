@@ -2,7 +2,7 @@ class Route < ApplicationRecord
   #belongs_to :user_id
 
   #Rutas no asignadas aun
-  scope :not_resolved, -> { where(resolved: false) }
+  scope :not_resolved, -> { where(resolved: [false,nil]) }
 
   #Rutas asignadas
   scope :resolved, -> { where(resolved: true) }
