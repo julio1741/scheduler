@@ -1,5 +1,5 @@
-# scheduler
-Scheduler, aplicado a la asignación de rutas de vehículos de una flota y a un equipo de conductores disponibles.
+# Scheduler
+Aplicado a la asignación de rutas de vehículos de una flota y a un equipo de conductores disponibles.
 
 
 # Especificaciones:
@@ -9,8 +9,6 @@ Ruby: 2.6.3p62
 Rails 6.0.0
 PostgreSQL 11.4
 ```
-# Ambienta(id: integer, name: string, phone: string, email: string, vehicle_id: integer, cities: string, created_at: datetime, updated_at: datetime, stops_amount: integerión
-Clonar repositorio
 
 # Modelos
 
