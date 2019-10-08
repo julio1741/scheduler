@@ -7,7 +7,7 @@ module RoutesHelper
 
       range = [ur.starts_at, ur.ends_at]
 
-      available_vehicles = get_available_vehicles(range)
+      available_vehicles = vehicles_with_capacity(range, load_sum)
       available_drivers = get_available_drivers(range)
 
       vehicle = available_vehicles.first
@@ -48,6 +48,11 @@ module RoutesHelper
     return true if drive_stop_amount.nil?
     return true if route_stop_amount.nil?
     return true if drive_stop_amount >= route_stop_amount
+  end
+
+  #Filtar vehiculos con capacidad para una ruta
+  def self.vehicles_with_capacity range, load_sum
+    get_available_vehicles.select{|v| v.capacity >= load_sum}
   end
 
 end
