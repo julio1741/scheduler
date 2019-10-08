@@ -16,5 +16,15 @@ rails g scaffold driver name:string phone:string, email:string, vehicle_id:refer
 
 #Ambientación
 Clonar repositorio
-rake db:seed
+
+#Modelos
+
+
+#datos
+Las comunas se manejas através de un String concatenado
+
+
+heroku run rake db:migrate
+
+heroku run rrake db:seed
 
