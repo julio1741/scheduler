@@ -62,7 +62,7 @@ td {
         <td><%= route.load_sum %></td>
         <td><%= route.cities %></td>
         <td><%= route.vehicle_id %></td>
-        <td><%= route.driver_id %></td>
+        <td><%= Driver.find_by_id(route.driver_id).name %></td>
         <td><%= link_to 'Show', route %></td>
         <td><%= link_to 'Edit', edit_route_path(route) %></td>
         <td><%= link_to 'Destroy', route, method: :delete, data: { confirm: 'Are you sure?' } %></td>
