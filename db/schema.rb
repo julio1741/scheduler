@@ -19,11 +19,11 @@ ActiveRecord::Schema.define(version: 2019_10_08_145605) do
     t.string "name"
     t.string "phone"
     t.string "email"
-    t.bigint "vehicle_id_id"
+    t.bigint "vehicle_id"
     t.string "cities"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["vehicle_id_id"], name: "index_drivers_on_vehicle_id_id"
+    t.index ["vehicle_id"], name: "index_drivers_on_vehicle_id"
   end
 
   create_table "routes", force: :cascade do |t|
@@ -32,21 +32,24 @@ ActiveRecord::Schema.define(version: 2019_10_08_145605) do
     t.string "load_type"
     t.integer "load_sum"
     t.string "cities"
-    t.bigint "driver_id", null: false
+    t.bigint "driver_id"
+    t.bigint "vehicle_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["driver_id"], name: "index_routes_on_driver_id"
+    t.index ["vehicle_id"], name: "index_routes_on_vehicle_id"
   end
 
   create_table "vehicles", force: :cascade do |t|
     t.integer "capacity"
     t.string "load_type"
-    t.bigint "driver_id_id"
+    t.bigint "driver_id"
     t.boolean "owner"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["driver_id_id"], name: "index_vehicles_on_driver_id_id"
+    t.index ["driver_id"], name: "index_vehicles_on_driver_id"
   end
 
   add_foreign_key "routes", "drivers"
+  add_foreign_key "routes", "vehicles"
 end

@@ -3,7 +3,7 @@ class CreateVehicles < ActiveRecord::Migration[6.0]
     create_table :vehicles do |t|
       t.integer :capacity
       t.string :load_type
-      t.references :driver_id
+      t.references :driver
       t.boolean :owner
 
       t.timestamps

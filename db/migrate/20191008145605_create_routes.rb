@@ -6,7 +6,8 @@ class CreateRoutes < ActiveRecord::Migration[6.0]
       t.string :load_type
       t.integer :load_sum
       t.string :cities
-      t.references :driver, null: false, foreign_key: true
+      t.references :driver, null: true, foreign_key: true
+      t.references :vehicle, null: true, foreign_key: true
 
       t.timestamps
     end
