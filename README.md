@@ -35,3 +35,10 @@ PostgreSQL 11.4
 - Falto validar los tipos de carga(load_type)
 - Llenas con mas data el seed.rb
 - Hacer mas pruebas para validar todo
+
+# Instalación
+- Clonar repositorio
+- Crear base de datos (Rake db:create)
+- Realizar migración (Rake db:migrate)
+- Ejecutar seed (Rake db:seed)
+- Iniciar proyecto (Rails server)
