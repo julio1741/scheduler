@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  starts_at: 
+  ends_at: 
+  load_type: 
+  load_sum: 
+  cities: 
+  user_id: one
+
+two:
+  starts_at: 
+  ends_at: 
+  load_type: 
+  load_sum: 
+  cities: 
+  user_id: two
