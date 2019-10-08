@@ -7,7 +7,7 @@ module RoutesHelper
 
       range = [ur.starts_at, ur.ends_at]
 
-      available_vehicles = vehicles_with_capacity(range, load_sum)
+      available_vehicles = vehicles_with_capacity(range, ur.load_sum)
       available_drivers = get_available_drivers(range)
 
       vehicle = available_vehicles.first
@@ -52,7 +52,7 @@ module RoutesHelper
 
   #Filtar vehiculos con capacidad para una ruta
   def self.vehicles_with_capacity range, load_sum
-    get_available_vehicles.select{|v| v.capacity >= load_sum}
+    get_available_vehicles(range).select{|v| v.capacity >= load_sum}
   end
 
 end
