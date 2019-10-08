@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_08_145605) do
+ActiveRecord::Schema.define(version: 2019_10_08_170747) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,8 +36,20 @@ ActiveRecord::Schema.define(version: 2019_10_08_145605) do
     t.bigint "vehicle_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "resolved"
     t.index ["driver_id"], name: "index_routes_on_driver_id"
     t.index ["vehicle_id"], name: "index_routes_on_vehicle_id"
+  end
+
+  create_table "schedules", force: :cascade do |t|
+    t.bigint "vehicle_id"
+    t.bigint "driver_id"
+    t.bigint "route_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["driver_id"], name: "index_schedules_on_driver_id"
+    t.index ["route_id"], name: "index_schedules_on_route_id"
+    t.index ["vehicle_id"], name: "index_schedules_on_vehicle_id"
   end
 
   create_table "vehicles", force: :cascade do |t|
@@ -52,4 +64,5 @@ ActiveRecord::Schema.define(version: 2019_10_08_145605) do
 
   add_foreign_key "routes", "drivers"
   add_foreign_key "routes", "vehicles"
+  add_foreign_key "schedules", "routes"
 end
